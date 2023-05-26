@@ -22,20 +22,56 @@ class Cursor {
     Screen.setBackgroundColor(this.row, this.col, this.cursorColor);
   }
 
-  up() {
-    // Move cursor up
+  up = () => {
+    if (this.row === 0){
+      console.log("You cannot move further up.");
+      return;
+    }
+
+    this.resetBackgroundColor();
+    this.row -= 1;
+    this.setBackgroundColor();
+
+    Screen.render();
   }
 
-  down() {
-    // Move cursor down
+  down = () => {
+    if (this.row === 2){
+      console.log("You cannot move further down.");
+      return;
+    }
+
+    this.resetBackgroundColor();
+    this.row += 1;
+    this.setBackgroundColor();
+
+    Screen.render();
   }
 
-  left() {
-    // Move cursor left
+  left = () => {
+    if (this.col === 0){
+      console.log("You cannot move further left.");
+      return;
+    }
+
+    this.resetBackgroundColor();
+    this.col -= 1;
+    this.setBackgroundColor();
+
+    Screen.render();
   }
 
-  right() {
-    // Move cursor right
+  right = () => {
+    if (this.col === 2){
+      console.log("You cannot move further right.");
+      return;
+    }
+
+    this.resetBackgroundColor();
+    this.col += 1;
+    this.setBackgroundColor();
+
+    Screen.render();
   }
 
 }
